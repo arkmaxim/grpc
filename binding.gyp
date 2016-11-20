@@ -43,6 +43,11 @@
       'include'
     ],
     'conditions': [
+      ['OS == "mac"', {
+        "libraries": [
+          "/usr/local/opt/openssl/lib/libcrypto.a"
+        ],
+      }],
       ['OS == "win"', {
         "include_dirs": [
           "third_party/boringssl/include",
