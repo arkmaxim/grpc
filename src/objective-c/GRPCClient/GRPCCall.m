@@ -374,10 +374,10 @@ NSString * const kGRPCTrailersKey = @"io.grpc.TrailersKey";
     // TODO(jcanizales): Check this on init.
     [NSException raise:NSInvalidArgumentException format:@"host of %@ is nil", _host];
   }
-  __weak typeof(self) weakSelf = self;
+  __weak __typeof(self) weakSelf = self;
   _connectivityMonitor = [GRPCConnectivityMonitor monitorWithHost:host];
   [_connectivityMonitor handleLossWithHandler:^{
-    typeof(self) strongSelf = weakSelf;
+    __typeof(self) strongSelf = weakSelf;
     if (strongSelf) {
       [strongSelf finishWithError:[NSError errorWithDomain:kGRPCErrorDomain
                                                       code:GRPCErrorCodeUnavailable
